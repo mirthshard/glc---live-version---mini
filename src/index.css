@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-tglc-black: #07080B;
+  --color-tglc-charcoal: #0D1017;
+  --color-tglc-surface: #131722;
+  --color-tglc-ivory: #FAF7F0;
+  --color-tglc-stone: #D4D8E2;
+  --color-tglc-muted: #8F98AA;
+  --color-tglc-gold: #B98633;
+  --color-tglc-gold-bright: #E2BA6B;
+  --color-tglc-gold-glint: #F0CC83;
+  --color-tglc-gold-mid: #CFA85E;
+  --color-tglc-gold-dark: #8B672B;
+  --color-tglc-bronze: #735320;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #07080B;
+  color: #B8C0D0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-editorial {
+  font-family: var(--font-serif);
+  color: #F2D8A0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  color: #FFFDF7;
+  letter-spacing: -0.018em;
+}
+
+/* Clear visual separation between section/block headings and body paragraphs site-wide */
+main h2,
+main h3,
+main h4,
+footer h2,
+[role="dialog"] h2,
+[role="dialog"] h3 {
+  color: #F2D8A0;
+}
+
+main .group:hover h2,
+main .group:hover h3,
+main .group:hover h4 {
+  color: #FFE7B3;
+}
+
+main p:not(.font-serif):not(.font-mono):not(.tglc-kicker):not(.tglc-meta) {
+  color: #B4BCCB;
+  line-height: 1.72;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Typographic hierarchy helpers for stark contrast between headlines, prose, kickers & telemetry */
+.tglc-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #E2BA6B;
+  font-weight: 500;
+}
+
+.tglc-prose {
+  font-family: var(--font-sans);
+  color: #B4BCCB;
+  line-height: 1.75;
+  letter-spacing: 0.008em;
+}
+
+.tglc-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #8F98AA;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Calibrated brushed antique bronze-gold button styling matching TGLC crest */
+.btn-gold {
+  background: linear-gradient(135deg, #F0CC83 0%, #E2BA6B 38%, #C4933F 72%, #8B672B 100%);
+  color: #07080B;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid #CFA85E;
+  box-shadow: 0 4px 20px -2px rgba(185, 134, 51, 0.34);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, background 0.22s ease;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #F7DB9C 0%, #F0CC83 38%, #E2BA6B 72%, #B98633 100%);
+  box-shadow: 0 6px 28px 0 rgba(226, 186, 107, 0.42);
+  transform: translateY(-1px);
+}
+
+.btn-outline-gold {
+  background: #0D1017;
+  color: #FAF7F0;
+  border: 1px solid #8B672B;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, color 0.22s ease, background-color 0.22s ease;
+}
+.btn-outline-gold:hover {
+  border-color: #E2BA6B;
+  color: #E2BA6B;
+  background: #131722;
+  transform: translateY(-1px);
+}
+
+/* SmartImage non-priority smooth fade-in */
+.smart-img-fade {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+.smart-img-fade.smart-img-loaded {
+  opacity: 1;
+}
+
+/* Additive card title gold underline growing left-to-right on group hover */
+.card-title-underline {
+  position: relative;
+  display: inline-block;
+}
+.card-title-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: #E2BA6B;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .card-title-underline::after,
+.group:focus-visible .card-title-underline::after {
+  transform: scaleX(1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07080B;
+}
+::-webkit-scrollbar-thumb {
+  background: #232736;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B672B;
+}
+
+/* Theme Remix Variances */
+html.theme-nocturne-stealth body {
+  background-color: #050608;
+  color: #D4D8E2;
+}
+
+html.theme-white-tie body {
+  background-color: #070912;
+  color: #EEF1F7;
+}
+
+@keyframes tglcShimmerSweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.tglc-shimmer {
+  background: linear-gradient(
+    105deg,
+    #0e1118 0%,
+    #141925 36%,
+    rgba(207, 168, 94, 0.14) 50%,
+    #141925 64%,
+    #0e1118 100%
+  );
+  background-size: 220% 100%;
+  animation: tglcShimmerSweep 2.1s infinite linear;
+}
+
+.tglc-shimmer-soft {
+  background: linear-gradient(
+    105deg,
+    #0b0d14 0%,
+    #121622 40%,
+    rgba(226, 186, 107, 0.09) 50%,
+    #121622 60%,
+    #0b0d14 100%
+  );
+  background-size: 220% 100%;
+  animation: tglcShimmerSweep 2.4s infinite linear;
+}

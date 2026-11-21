@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /members/
+Sitemap: https://thegloballuxuryconsortium.co.uk/sitemap.xml

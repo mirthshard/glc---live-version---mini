@@ -1,0 +1,6 @@
+{
+  "name": "The Global Luxury Consortium",
+  "description": "London-based private concierge and luxury lifestyle-management house for ultra-high-net-worth individuals, families, and family offices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
